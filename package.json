@@ -1,0 +1,27 @@
+{
+  "name": "intern-fe-pr1-pnam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "guplfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namnp-1182/Intern-FE-PR1-PNam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namnp-1182/Intern-FE-PR1-PNam/issues"
+  },
+  "homepage": "https://github.com/namnp-1182/Intern-FE-PR1-PNam#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.42.1"
+  }
+}
