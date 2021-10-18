@@ -1,8 +1,10 @@
-@import "base/reset";
-
+@import "abstracts/variables";
 @import "abstracts/global";
 @import "abstracts/mixin";
-@import "abstracts/variables";
+
+@import "base/reset";
+
+@import "component/slider";
 
 @import "layout/header";
 @import "layout/footer"

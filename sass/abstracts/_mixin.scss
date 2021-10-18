@@ -1,0 +1,30 @@
+@mixin paddingX($left, $right) {
+    padding-left: $left;
+    padding-right: $right;
+}
+
+@mixin paddingY($top, $bottom) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@mixin marginX($left, $right) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin marginY($top, $bottom) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin transition($time) {
+    transition: all $time;
+}

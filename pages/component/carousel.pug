@@ -1,0 +1,24 @@
+mixin carouselHeader(id, defaultImg, array)
+    .carousel.slider(id="" + id, data-pause="false", data-ride="carousel", data-interval="5000")
+        .carousel-inner
+            each val in array
+                if val.img === defaultImg
+                    .carousel-item.active
+                        img(src="./assets/images/" + val.img, alt="Slide number " + i)
+                        .carousel-text
+                            p.carousel-title=val.title
+                                if val.year
+                                    span=" Since " + val.year 
+                                span.carousel-subtitle=val.subtitle
+                else
+                    .carousel-item
+                        img(src="./assets/images/" + val.img, alt="Slide number " + i)
+                        .carousel-text
+                            p.carousel-title=val.title 
+                                if val.year
+                                    span=" Since " + val.year
+                                span.carousel-subtitle=val.subtitle
+        a.carousel-control-prev(href="#" + id, role="button", data-slide="prev")
+            span.fas.fa-chevron-left
+        a.carousel-control-next(href="#" + id, role="button", data-slide="next")
+            span.fas.fa-chevron-right
