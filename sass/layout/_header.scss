@@ -20,6 +20,7 @@
                 color: $darkGray;
                 @include marginX(15px, 15px);
                 @include transition(0.4s);
+
                 &:hover {
                     color: $primaryColor;
                 }

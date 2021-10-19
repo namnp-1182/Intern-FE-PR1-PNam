@@ -18,6 +18,27 @@
     margin-bottom: $bottom;
 }
 
+@mixin textTranform($type, $weight) {
+    text-transform: $type;
+    font-weight: $weight;
+}
+
+@mixin border($width,$type, $color) {
+    border: $width $type $color;
+}
+
+@mixin borderTop($width,$type, $color) {
+    border-top: $width $type $color;
+}
+
+@mixin borderBottom($width,$type, $color) {
+    border-bottom: $width $type $color;
+}
+
+@mixin borderRight($width,$type, $color) {
+    border-right: $width $type $color;
+}
+
 @mixin flex($justify, $align, $direction) {
     display: flex;
     justify-content: $justify;

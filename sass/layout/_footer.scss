@@ -1,0 +1,148 @@
+.footer {
+    &-brand {
+        &_img {
+            @include borderBottom(1px, solid, $gray);
+
+            &:not(:last-child) {
+                @include borderRight(1px, solid, $gray);
+            }
+        }
+    }
+
+    &-main {
+        @include paddingY(60px, 45px);
+
+        h3 {
+            padding-bottom: 16px;
+            @include textTranform(uppercase, 500);
+            font-size: 18px;
+        }
+
+        &_item {
+            padding-bottom: 12px;
+
+            ul {
+                line-height: 1.4;
+            }
+
+            &_link {
+
+                a {
+                    color: $darkGray;
+                    font-size: 12px;
+                    text-decoration: none;
+                    @include transition(.4s);
+                    @include textTranform(uppercase, 400);
+
+                    &:hover {
+                        color: $primaryColor;
+                    }
+                }
+            }
+        }
+        &_contact {
+            padding-bottom: 12px;
+
+            p {
+                font-size: 14px;
+                color: $darkGray;
+                padding-top: 6px;
+            }
+        }
+
+        &_input-group {
+            position: relative;
+            width: 80%;
+            @include marginY(27px, 10px);
+
+            input {
+                width: 100%;
+                padding: 6px 14px 8px 12px;
+                font-size: 12px;
+                @include border(1px, solid, $darkGray);
+                @include borderRight(1px, solid, $secondaryColor);
+            }
+
+            button {
+                background-color: $secondaryColor;
+                color: $fontColor;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 0;
+                @include paddingY(0px, 0px);
+
+                &:hover {
+                    color: $primaryColor;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: -1px;
+                    left: 103%;
+                    border-top: 17px solid transparent;
+                    border-bottom: 15px solid transparent;
+                    border-left: 21px solid $secondaryColor;
+                    border-right: 20px solid transparent;
+                }
+            }
+        }
+
+        &_socials {
+            .btn-link {
+                padding-right: 10px;
+                color: $darkGray;
+                @include transition(.4s);
+
+                &:hover {
+                    color: $primaryColor;
+                }
+            }
+        }
+        &_info {
+            padding-bottom: 12px;
+
+            p {
+                color: $secondaryColor;
+                line-height: 1.8;
+                font-size: 14px;
+                padding-bottom: 3px;
+                i {
+                    padding-right: 10px;
+                }
+
+                &:last-child {
+                    span {
+                        padding-right: 10px;
+
+                        &:last-child {
+                            color: $primaryColor;
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-copy-right {
+        @include paddingY(10px,10px);
+        @include borderTop(1px, solid, $gray);
+
+        p {
+            color: $darkGray;
+            font-size: 13px;
+        }
+
+        img {
+            filter: grayscale(1);
+            @include transition(.3s);
+
+            &:hover {
+                filter: grayscale(0);
+            }
+        }
+    }
+}
