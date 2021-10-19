@@ -1,0 +1,46 @@
+include ../data/header_data.pug
+include ../component/carousel.pug
+include ../base/mixin.pug
+header.header 
+    .header-top 
+        .container.d-flex.justify-content-between.align-items-center
+            ul.header-top_left
+                each item in header_top_items
+                    - const { title, link } = item 
+                    li.header-top_item 
+                        a.btn-link(href=link)=title 
+            .header-top_right 
+                .header-top_input-group.d-flex 
+                    input(type='text' placeholder='Tìm kiếm ở đây...')
+                    span.fas.fa-search
+    - if (current == '/')
+        section.slider 
+            +carouselHeader('carouselHeader', header_carousel_items[0].img, header_carousel_items)
+    .header-main
+        .container.d-flex.justify-content-between.align-items-center 
+            +logo('./assets/images/logo1.png')
+            nav.header-main_navbar.col-9
+                ul.header-main_navbar-items
+                    each item in navbar_items
+                        -const {title, link,hasSubmenu} = item 
+                        if hasSubmenu 
+                            li.header-main_navbar-item
+                                a.header-main_link(href=link, class=`${current=== link ? 'active': ''}`)=title
+                                .header-main_mega-menu 
+                                    .row 
+                                        .col-8
+                                            .row
+                                                each item in submenu_items
+                                                    - const {title, items} = item 
+                                                    .header-main_mega-menu_item.col-4 
+                                                        h3= title
+                                                        ul.mega-menu_list 
+                                                            each item in items
+                                                                li.header-main_mega-menu_list-item 
+                                                                    a.header-main_mega-menu_link(href='#')= item
+                                        .col-4
+                                            img(src="./assets/images/gallery-2.jpg" alt="Wine Banner")
+
+                        else 
+                            li.header-main_navbar-item 
+                                a.header-main_link(href=link, class=`${current=== link ? 'active': ''}`)=title
