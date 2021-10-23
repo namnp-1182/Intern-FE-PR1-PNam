@@ -1,10 +1,10 @@
 mixin carouselHeader(id, defaultImg, array)
-    .carousel.slider(id="" + id, data-pause="false", data-ride="carousel", data-interval="5000")
+    .carousel.slider(id="" + id, data-pause="false" data-ride="carousel" data-interval="5000")
         .carousel-inner
             each val in array
                 if val.img === defaultImg
                     .carousel-item.active
-                        img(src="./assets/images/" + val.img, alt="Slide number " + i)
+                        img.carousel-item_img(src="./assets/images/" + val.img, alt="Slide")
                         .carousel-text
                             p.carousel-title=val.title
                                 if val.year
@@ -12,13 +12,39 @@ mixin carouselHeader(id, defaultImg, array)
                                 span.carousel-subtitle=val.subtitle
                 else
                     .carousel-item
-                        img(src="./assets/images/" + val.img, alt="Slide number " + i)
+                        img(src="./assets/images/" + val.img, alt="Slide")
                         .carousel-text
                             p.carousel-title=val.title 
                                 if val.year
                                     span=" Since " + val.year
                                 span.carousel-subtitle=val.subtitle
-        a.carousel-control-prev(href="#" + id, role="button", data-slide="prev")
+        a.carousel-control-prev(href="#" + id, role="button" data-slide="prev")
             span.fas.fa-chevron-left
-        a.carousel-control-next(href="#" + id, role="button", data-slide="next")
+        a.carousel-control-next(href="#" + id, role="button" data-slide="next")
             span.fas.fa-chevron-right
+
+mixin carousel(id, itemLength, array)
+    .carousel.slide.carousel-multi(id=id + itemLength, data-pause="false" data-ride="carousel" data-interval="100000")
+        .carousel-inner 
+            - for (var i = 0; i < Math.round(array.length / itemLength); i++)
+                - var condition1 = ((i + 1) * itemLength) > array.length ? array.length : (i + 1) * itemLength
+                - var condition2 = itemLength === 1 ? 'col-8 offset-2' : 'col-' + 12 / itemLength;
+                if i === 0
+                    .carousel-item.active
+                        .row
+                            - for (var j = i * itemLength; j < condition1 ; j++)
+                                div(class=condition2)
+                                    - const { name, img, price, oldPrice, type } = array[j]
+                                    +product-item(name, img, type, price, oldPrice, link)
+                else
+                    div.carousel-item
+                        div.row
+                            - for (var j = i * itemLength; j < condition1 ; j++)
+                                div(class=condition2)
+                                    - const { name, img, type, price, oldPrice, link } = array[j]
+                                    +product-item(name, img, type, price, oldPrice, link)
+        .controls 
+            a.carousel-multi-prev(href="#" + id + itemLength, data-slide="prev")
+                i.fas.fa-arrow-left
+            a.carousel-multi-next(href="#" + id + itemLength, data-slide="next")
+                i.fas.fa-arrow-right

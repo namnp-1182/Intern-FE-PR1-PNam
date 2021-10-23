@@ -25,7 +25,7 @@ header.header
                         -const {title, link,hasSubmenu} = item 
                         if hasSubmenu 
                             li.header-main_navbar-item
-                                a.header-main_link(href=link, class=`${current=== link ? 'active': ''}`)=title
+                                a.header-main_link.submenu(href=link, class=`${current=== link ? 'active': ''}`)=title
                                 .header-main_mega-menu 
                                     .row 
                                         .col-8
