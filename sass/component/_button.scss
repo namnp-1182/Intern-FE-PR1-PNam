@@ -1,0 +1,23 @@
+.btn {
+
+    &:hover {
+        background-color: $primaryColor;
+        color: $whiteColor;
+    }
+}
+.btn-primary,
+.btn-add {
+    background-color: $secondaryColor;
+    color: #ffffff;
+    padding: 6px 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-radius: 1px;
+    transition: all 0.4s;
+    margin-bottom: 25px;
+
+    &:hover {
+        background-color: $primaryColor;
+        color: $whiteColor;
+    }
+}

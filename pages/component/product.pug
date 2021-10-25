@@ -1,0 +1,24 @@
+mixin product-item(name, img, type, price, oldPrice, link)
+    .productItem.productItem--grid
+        .product_img
+            if type
+                .tag(class= type)
+            else 
+                .div
+            img(src='./assets/images/'+ img, alt= name)
+            .product-widget 
+                .product-widget_item
+                    span.fas.fa-heart
+                    | Yêu thích
+                .product-widget_item
+                    span.fas.fa-signal
+                    | So sánh 
+                .product-widget_item
+                    span.fas.fa-compress
+        .product-text.text-center
+            a.product-name(href= link)= name 
+            .product-price.row.text-center.justify-content-center 
+                p.new-price= price
+                span -
+                p.old-price= oldPrice
+            btn.btn.btn-primary ADD TO CART

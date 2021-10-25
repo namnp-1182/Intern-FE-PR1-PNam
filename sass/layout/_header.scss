@@ -1,12 +1,8 @@
 .header {
     .header-top {
         .container {
-            // position: fixed;
             z-index: 100;
             background-color: rgba(255, 255, 255, 0.1);
-            // padding-right: 196px;
-            // padding-left: 196px;
-            // max-width: 1920px;
             margin: 0 auto;
         }
 
@@ -20,7 +16,6 @@
                 color: $darkGray;
                 @include marginX(15px, 15px);
                 @include transition(0.4s);
-
                 &:hover {
                     color: $primaryColor;
                 }
@@ -90,22 +85,27 @@
                 & > .header-main_mega-menu {
                     display: block;
                 }
+
+                .header-main_link.submenu {
+                    &::before {
+                        content: "";
+                        border: 10px solid;
+                        border-color: transparent transparent $primaryColor transparent;
+                        position: absolute;
+                        top: 76px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
             }
         }
 
         &_link {
             @include transition(0.4s);
-
+            position: relative;
+            
             &:hover {
                 color: $primaryColor;
-                &::before {
-                    content: "";
-                    border: 10px solid;
-                    border-color: transparent transparent $primaryColor transparent;
-                    position: absolute;
-                    top: 76px;
-                    left: 20px;
-                }
             }
         }
 

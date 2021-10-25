@@ -1,0 +1,159 @@
+.product_img {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+
+  .tag {
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: $whiteColor;
+    border: 0 solid transparent;
+    border-bottom-width: 60px;
+    border-top-width: 0px;
+    border-left: 60px solid $primaryColor;
+
+    &::after {
+      content: "Sale";
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+  }
+  
+  .s-tag {
+    border-bottom-width: 95px;
+    border-top-width: 0px;
+    border-left: 100px solid $primaryColor;
+  }
+
+  .s-sale {
+
+    &::after {
+
+      font-size: 24px;
+      top: -10px;
+      right: 0px;
+      left: -100px;
+    }
+  }
+  .sale {
+
+    &::after {
+
+      font-size: 16px;
+      top: 6px;
+      right: 0px;
+      left: -80px; 
+    }
+  }
+
+  .new {
+
+    border-left-color: $greenColor;
+
+    &::after {
+      content: "Mới";
+      font-size: 16px;
+      top: 6px;
+      right: 0px;
+      left: -80px;
+    }
+  }
+  .hot {
+
+    border-left-color: $redColor;
+
+    &::after {
+      content: "Hot";
+      font-size: 16px;
+      top: 6px;
+      right: 0px;
+      left: -80px;
+    }
+  }
+}
+
+.productItem--grid {
+  padding: 0 10px;
+
+  .product_img {
+    position: relative;
+
+    .product-widget {
+      background-color: $secondaryColor;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -50px;
+      display: flex;
+      text-align: center;
+
+      .product-widget_item {
+        color: $darkGray;
+        width: 20%;;
+        font-size: 13px;
+        text-align: center;
+        padding: 4px 0;
+        @include transition(0.4s);
+        span {
+          padding-right: 5px;
+        }
+
+        &:not(:last-child) {
+          width: 40%;
+          border-right: 1px solid $darkGray;
+        }
+
+        &:hover {
+          background-color: $primaryColor;
+          color: $whiteColor;
+        }
+      }
+    }
+  }
+
+  .product-text {
+    padding-top: 10px;
+
+    .product-name {
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .product-price {
+      display: flex;
+      
+      @include paddingY(10px,10px);
+
+      .new-price {
+        font-size: 20px;
+        padding-right: 5px;
+        color: $primaryColor;
+
+        &::after {
+          content: "\20AB";
+          top: 5px;
+        }
+      }
+      
+      .old-price {
+        color: $darkGray;
+        text-decoration: line-through;
+        padding-left: 5px;
+        font-size: 15px;
+        line-height: 1.8;
+
+        &::after {
+          content: "\20AB";
+        }
+      }
+    }
+  }
+  
+  &:hover {
+
+    .product-widget {
+      bottom: 0;
+    }
+  }
+}

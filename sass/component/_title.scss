@@ -1,0 +1,17 @@
+.title {
+    font-size: 21px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 20px;
+    width: 195px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    
+    &:after {
+        content: url("../assets/images/title-dark.png");
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+    }
+}

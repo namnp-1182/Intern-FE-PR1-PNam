@@ -3,5 +3,43 @@ extends ./base/base.pug
 block variables
     - const title = 'Trang chủ'
     - const current = '/'
+    include ./data/index_data.pug
+
+include ./component/carousel.pug
+include ./component/product.pug
 
 block main 
+    section.intro 
+        .intro_main.col-lg-6.text-center 
+            h1.title Giới thiệu 
+            p.intro_text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, autem totam tempore alias minima officia vitae fugiat soluta similique iusto, laboriosam eligendi non ab atque aperiam molestias distinctio, libero eaque quos sed? Libero cum deleniti error laudantium? Facere, perspiciatis, placeat ipsam eos ad alias libero corporis, nostrum optio praesentium similique recusandae qui minus soluta mollitia harum sunt rerum dolores! Repellendus doloremque ipsa distinctio accusantium officia a tenetur, eveniet perspiciatis quia.
+            a.btn.btn-intro Xem thêm
+    section.s-product 
+        .container 
+            .s-product_bg 
+                .s-product_main.row 
+                    .col-md-7
+                        .product_img
+                            .tag.s-sale.s-tag 
+                            img(src="./assets/images/signature-product.jpg", alt="signature product")
+                    .col-md-5
+                        .s-product_info
+                            h3.s-product_info_title Rượu nho năm 1987
+                            .s-product_info_price 
+                                p 300.000
+                            btn.btn.btn-add Add to cart 
+                            p.s-product_info_desc  Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.
+                            .s-product_info_countdown.text-center
+                                .row 
+                                    each item in countdown 
+                                        - const {number, unit} = item
+                                        .s-product_info_countdown_item.col-lg-6.text-center 
+                                            span.number= number
+                                            p.unit= unit
+    section.n-product 
+        .container 
+            .n-product_title.col-lg-12.text-center 
+                h3.title Sản phẩm mới 
+                .n-product_item
+                    +carousel("item", 4, new_product)
+                    
