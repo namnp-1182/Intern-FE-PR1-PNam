@@ -1,0 +1,11 @@
+mixin blog(title, img, desc, author, date, comments)
+    .blog_item
+        .blog_img 
+            a(href="#")
+                img(src=`./assets/images/${img}`, alt= title)
+            span.fas.fa-link 
+        .blog_content.text-left 
+            a.blog-title(href="#")= title
+            h3.blog-info= `Đăng bởi ${author} | ${date} | ${comments.length} bình luận`
+            p.blog-desc= desc 
+            a.btn-readmore(href="#") Read more  

@@ -3,8 +3,11 @@
     &:hover {
         background-color: $primaryColor;
         color: $whiteColor;
+        outline: none;
+        border: none;
     }
 }
+
 .btn-primary,
 .btn-add {
     background-color: $secondaryColor;
@@ -15,9 +18,20 @@
     border-radius: 1px;
     transition: all 0.4s;
     margin-bottom: 25px;
+    border-color: unset;
 
     &:hover {
         background-color: $primaryColor;
         color: $whiteColor;
+    }
+}
+
+.btn-readmore {
+    color: $darkGray;
+    font-size: 13px;
+    padding-top: 8px;
+
+    &:hover {
+        color: $primaryColor;
     }
 }

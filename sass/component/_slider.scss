@@ -63,18 +63,70 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        
         &:hover {
           color: $primaryColor;
         }
       }
-      
+
       .carousel-multi-prev {
-        right: 101%;
+        right: 100%;
       }
 
       .carousel-multi-next {
-        left: 101%;
+        left: 100%;
+      }
+    }
+  }
+}
+
+#carousel-customer {
+  padding-bottom: 3rem;
+  .carousel-indicators {
+    bottom: calc(7px + 1vh);
+    top: 100%;
+    li {
+      background-color: $lightGray;
+      bottom: 1rem;
+      border-radius: 50%;
+      height: 10px;
+      width: 10px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.active {
+        background-color: $primaryColor;
+      }
+    }
+  }
+
+  .carousel-inner {
+    .carousel-item {
+      img {
+        border-radius: 10px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 1rem;
+        width: 100px;
+      }
+
+      .carousel__content {
+        .name {
+          color: $secondaryColor;
+          font-size: 14px;
+          font-weight: 500;
+          padding-top: 20px;
+          text-transform: uppercase;
+        }
+
+        .job {
+          color: $darkGray;
+          font-style: italic;
+          font-size: 12px;
+          font-weight: 300;
+          @include paddingY(5px, 0);
+        }
       }
     }
   }

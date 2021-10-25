@@ -31,7 +31,7 @@
                     color: $darkGray;
                     font-size: 12px;
                     text-decoration: none;
-                    @include transition(.4s);
+                    @include transition(all ,.4s, ease);
                     @include textTranform(uppercase, 400);
 
                     &:hover {
@@ -94,7 +94,7 @@
             .btn-link {
                 padding-right: 10px;
                 color: $darkGray;
-                @include transition(.4s);
+                @include transition(all,.4s, ease);
 
                 &:hover {
                     color: $primaryColor;
@@ -138,7 +138,7 @@
 
         img {
             filter: grayscale(1);
-            @include transition(.3s);
+            @include transition(all,.3s, ease);
 
             &:hover {
                 filter: grayscale(0);

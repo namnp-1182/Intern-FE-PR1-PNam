@@ -7,7 +7,7 @@ block variables
 
 include ./component/carousel.pug
 include ./component/product.pug
-
+include ./component/blog.pug
 block main 
     section.intro 
         .intro_main.col-lg-6.text-center 
@@ -36,10 +36,48 @@ block main
                                         .s-product_info_countdown_item.col-lg-6.text-center 
                                             span.number= number
                                             p.unit= unit
+    //- new-product
     section.n-product 
         .container 
             .n-product_title.col-lg-12.text-center 
                 h3.title Sản phẩm mới 
-                .n-product_item
-                    +carousel("item", 4, new_product)
-                    
+            .n-product_item
+                +carouselMulti("item", 4, new_product)
+    section.categories 
+        .container-fluid 
+            .row 
+                each item in categories 
+                    - const {title, year, img} = item
+                        .col-lg-3.p-0 
+                            .categories_item.view.overlay
+                                .categories_img(style= "background-image: url(./assets/images/" +img +")")
+                                    .categories_text.text-center
+                                        span= year 
+                                        h2= title           
+    //- bestseller-product
+    section.bs-product 
+        .container 
+            .col-lg-12.text-center
+                h3.title Sản phẩm bán chạy
+            .bs-product_item 
+                 +carouselMulti("bs-item", 4, bestseller_product)
+    section.content-bottom 
+        .container 
+            .row 
+                .col-lg-8
+                    .text-center
+                        h3.title tin tức &amp; blog 
+                    .news.row 
+                        each item in blogs
+                            - const {title, img, desc, author, date, comments} = item
+                            .col-lg-6 
+                                +blog(title, img, desc, author, date, comments)
+                .col-lg-4 
+                    .text-center 
+                        h3.title khách Hàng
+                    .customer.row.flex-column.text-center.justify-content-center.align-items-center
+                        span.fas.fa-quote-right
+                        p.customer_content Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên  từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn, Vang nổ đỏ Thăng Long...
+                        a.btn-readmore(href="#") Read more
+                        .col-6 
+                            +carouselCustomer('customer', customers[0].img, customers)

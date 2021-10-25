@@ -1,4 +1,4 @@
-mixin carouselHeader(id, defaultImg, array)
+mixin carousel(id, defaultImg, array)
     .carousel.slider(id="" + id, data-pause="false" data-ride="carousel" data-interval="5000")
         .carousel-inner
             each val in array
@@ -23,8 +23,8 @@ mixin carouselHeader(id, defaultImg, array)
         a.carousel-control-next(href="#" + id, role="button" data-slide="next")
             span.fas.fa-chevron-right
 
-mixin carousel(id, itemLength, array)
-    .carousel.slide.carousel-multi(id=id + itemLength, data-pause="false" data-ride="carousel" data-interval="100000")
+mixin carouselMulti(id, itemLength, array)
+    .carousel.slide.carousel-multi(id=id + itemLength, data-pause="false" data-ride="carousel" data-interval="5000")
         .carousel-inner 
             - for (var i = 0; i < Math.round(array.length / itemLength); i++)
                 - var condition1 = ((i + 1) * itemLength) > array.length ? array.length : (i + 1) * itemLength
@@ -48,3 +48,24 @@ mixin carousel(id, itemLength, array)
                 i.fas.fa-arrow-left
             a.carousel-multi-next(href="#" + id + itemLength, data-slide="next")
                 i.fas.fa-arrow-right
+mixin carouselCustomer(id, defaultImg, array)
+    div.carousel.slide(id="carousel-customer", data-ride="carousel", data-interval="100000")
+        ol.carousel-indicators
+            li.active(data-target='#carousel-customer' data-slide-to='0')
+            li(data-target='#carousel-customer' data-slide-to='1')
+            li(data-target='#carousel-customer' data-slide-to='2')
+        .carousel-inner
+            each item in array
+                -const {img, name, job} = item
+                if img === defaultImg
+                    .carousel-item.active
+                        img(src="../assets/images/"+ img, alt="customer")
+                        .carousel__content
+                            h3.name= name
+                            h3.job= job
+                else
+                    .carousel-item
+                        img(src="../assets/images/"+ img, alt="customer")
+                        .carousel__content
+                            h3.name= name
+                            h3.job= job

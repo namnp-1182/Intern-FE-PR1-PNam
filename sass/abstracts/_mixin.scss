@@ -23,19 +23,19 @@
     font-weight: $weight;
 }
 
-@mixin border($width,$type, $color) {
+@mixin border($width, $type, $color) {
     border: $width $type $color;
 }
 
-@mixin borderTop($width,$type, $color) {
+@mixin borderTop($width, $type, $color) {
     border-top: $width $type $color;
 }
 
-@mixin borderBottom($width,$type, $color) {
+@mixin borderBottom($width, $type, $color) {
     border-bottom: $width $type $color;
 }
 
-@mixin borderRight($width,$type, $color) {
+@mixin borderRight($width, $type, $color) {
     border-right: $width $type $color;
 }
 
@@ -46,6 +46,32 @@
     flex-direction: $direction;
 }
 
-@mixin transition($time) {
-    transition: all $time;
+@mixin transition($what: "all", $time, $type: "ease") {
+    transition: $what $time $type;
+    -webkit-transition: -webkit-$what $time $type;
+    -o-transition: $what $time $type;
+}
+@mixin tranformCenter($direction: "left") {
+    position: absolute;
+    @if $direction == "left" {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    @if $direction == "top" {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @if $direction == "both" {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
 }
