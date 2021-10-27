@@ -1,0 +1,12 @@
+mixin breadcrumb(items , current)
+    .breadcrumb
+        .container 
+            nav(aria-label='breadcrumb')
+                ul.breadcrumb_list
+                    each item in items 
+                        - const {page, link}= item 
+                        if current != link
+                            li.breadcrumb_item
+                                a(href= link)= page
+                        else
+                            li.breadcrumb_item.active(aria-current='page')= page

@@ -1,0 +1,21 @@
+.breadcrumb {
+    @include paddingY(35px, 35px);
+    
+    &_list {
+        display: flex;
+    }
+
+    &_item {
+        font-size: 14px;
+        color: $darkGray;
+
+
+        &:not(:last-child)::after{
+            content: " /";
+        }
+    }
+
+    .active {
+        color: $primaryColor;
+    }
+}
