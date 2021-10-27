@@ -1,0 +1,11 @@
+extends ./base/base.pug
+
+block variables
+    - const title = 'Trang chủ'
+    - const current = '/product.html'
+    include ./data/product_data.pug
+
+include ./component/product.pug
+include ./component/breadcrumb.pug
+block main 
+    +breadcrumb(breadcrumb , current)

@@ -1,0 +1,160 @@
+.product-detail {
+    .small-carousel {
+        &_control-prev,
+        &_control-next {
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                color: $primaryColor;
+            }
+        }
+
+        &_img {
+            img {
+                margin: 10px 0;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .active {
+                border: 2px solid $primaryColor;
+            }
+        }
+    }
+
+    &_price {
+        color: $primaryColor;
+        font-size: 30px;
+
+        &::after {
+            content: "\20AB";
+            top: 5px;
+        }
+    }
+
+    &_rating {
+        margin-top: 10px;
+        padding: 14px 0;
+        font-size: 14px;
+        color: $darkGray;
+        border-top: 1px solid $lightGray;
+        border-bottom: 1px solid $lightGray;
+    }
+
+    &_color {
+        &-option {
+            display: flex;
+            padding-top: 15px;
+
+            label {
+                cursor: pointer;
+
+                input {
+                    display: none;
+                }
+
+                input[type="radio"]:checked + .swatch {
+                    box-shadow: 0 0 0 2px $darkGray;
+                }
+
+                .swatch {
+                    display: inline-block;
+                    vertical-align: middle;
+                    height: 30px;
+                    width: 30px;
+                    margin: 0 5px 0 0;
+                    border: 2px solid #d4d4d4;
+                }
+            }
+        }
+    }
+
+    &_size {
+        select {
+            border-color: $lightGray;
+            color: $darkGray;
+            padding: 8px 12px;
+            width: 120px;
+        }
+    }
+
+    &_quantity {
+        font-size: 13px;
+
+        &_input-group {
+            display: inline-block;
+            background-color: $lightGray;
+            padding: 1px;
+            input {
+                width: 70px;
+                line-height: 2.3;
+            }
+            button {
+                background-color: $lightGray;
+                width: 29px;
+            }
+
+            input,
+            button {
+                font-size: 14px;
+                border: none;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &_react {
+        .action {
+            padding-right: 25px;
+            font-size: 14px;
+            color: $darkGray;
+
+            span {
+                padding-left: 8px;
+            }
+
+            &:hover span {
+                color: $darkGray;
+            }
+
+            &:hover i {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    &_desc {
+        color: $darkGray;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+}
+
+.product-tab {
+    padding-top: 60px;
+
+    &_img {
+        min-height: 200px;
+        
+    }
+
+    &_text {
+        font-size: 36px;
+        font-weight:100;
+        text-transform: uppercase;
+        color: $whiteColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+}
+
+.relevant-product {
+    @include paddingY(60px, 60px);
+}
