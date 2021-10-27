@@ -6,7 +6,7 @@
     width: 220px;
     margin: 0 auto;
     margin-bottom: 15px;
-    
+
     &:after {
         content: url("../assets/images/title-dark.png");
         position: absolute;
@@ -14,4 +14,23 @@
         transform: translateX(-50%);
         top: 50%;
     }
+}
+
+.title-left {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+        content: url("../assets/images/titleleft-dark.png");
+    }
+}
+
+.normal-title {
+    @include marginY(15px, 10px);
+    color: $darkGray;
+    font-size: 18px;
+    text-transform: uppercase;
 }

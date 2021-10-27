@@ -4,13 +4,16 @@
 
 @import "base/reset";
 
+@import "component/breadcrumb";
 @import "component/slider";
 @import "component/product";
 @import "component/button";
 @import "component/title";
 @import "component/blog";
+@import "component/tab";
 
 @import "layout/header";
 @import "layout/footer";
 
-@import "pages/index"
+@import "pages/index";
+@import "pages/product-detail";

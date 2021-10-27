@@ -1,0 +1,90 @@
+extends ./base/base.pug
+
+block variables
+    - const title = 'Trang chủ'
+    - const current = '/product-detail.html'
+    include ./data/product_data.pug
+
+block main 
+    +breadcrumb(breadcrumb , current)
+    section.product-detail 
+        .container 
+            each item in product_detail
+                - const {imgSmall,name,price,rating,reviewCount,colors,desc} = item
+                .row 
+                    .col-12.col-lg-7 
+                        .row(style= 'border-bottom: 1px solid #c1c1c1') 
+                            .col-lg-2.row.align-items-center
+                                .small-carousel 
+                                    .small-carousel_control-prev.pb-4.text-center 
+                                        span.fas.fa-arrow-up
+                                    .small-carousel_img 
+                                        each item in imgSmall
+                                            - const {img, imgAlt} = item 
+                                            img(class= imgAlt === 'product 11' ? 'active' : null, src=`./assets/images/${img}`, alt= imgAlt)
+                                    .small-carousel_control-next.pt-4.pb-4.text-center  
+                                        span.fas.fa-arrow-down
+                            .col-lg-10.row.align-items-center
+                                .product-detail_img 
+                                    img(src="./assets/images/11.jpg" alt="")
+                    .col-12.col-lg-5
+                        h1.title-left.mb-2= name 
+                        h2.product-detail_price= price 
+                        .product-detail_rating
+                            +rating(rating)
+                            span.ml-2= `${reviewCount} Review(S) |`
+                            a.ml-2(href="#") Add Your Review 
+                        .product-detail_color  
+                            h3.normal-title Màu sắc
+                            ul.product-detail_color-option 
+                                each item in colors
+                                    li.product-detail_color_item 
+                                        label
+                                            input(type='radio' name='colorOption' value= item)
+                                            span.swatch(style= "background-color:"+item)
+                        .product-detail_size 
+                            h3.normal-title Kích cỡ
+                            select(name='Wine size')
+                                option(value="big") Loại to
+                                option(value="small") Loại nhỏ
+                        .product-detail_quantity 
+                            h3.normal-title Số lượng 
+                            .row.ml-0.mt-2
+                                .product-detail_quantity_input-group.mr-3
+                                    button.product-detail_quantity_decrease -
+                                    input.text-center(type="number" value='3')
+                                    button.product-detail_quantity_increase +
+                                button.btn-primary.mb-0 ADD TO CART 
+                        .product-detail_react.row.ml-0.mt-3 
+                            .action
+                                a(href="#") 
+                                    i.fas.fa-heart 
+                                    span Yêu Thích
+                            .action
+                                a(href="#") 
+                                    i.fas.fa-signal
+                                    span So Sánh
+                            .action
+                                a(href="#") 
+                                    i.fas.fa-envelope
+                                    span Email 
+                        h3.normal-title mô tả
+                        p.product-detail_desc= desc
+    section.product-tab 
+        .container 
+            .row 
+                each item in tab
+                    - const {tabs, img, imgText} = item
+                    .col-lg-8 
+                        +tabs(tabs)
+                            each tab, index in tabs
+                                +tab(index)
+                                    p.desc= this.desc
+                    .col-lg-4.product-tab_img(style=`background: url(./assets/images/${img}) center center / cover no-repeat`)
+                        h2.product-tab_text.text-center= imgText
+    section.relevant-product 
+        .container 
+            .col-lg-12.text-center 
+                h3.title Sản phẩm liên quan
+            .r-product_item 
+                +carouselMulti("bs-item", 4, bestseller_product)
