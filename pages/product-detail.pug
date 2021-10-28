@@ -1,15 +1,10 @@
 extends ./base/base.pug
 
 block variables
-    - const title = 'Trang chủ'
+    - const title = 'Sản phẩm chi tiết'
     - const current = '/product-detail.html'
     include ./data/product_data.pug
 
-include ./component/carousel.pug
-include ./component/product.pug
-include ./component/breadcrumb.pug
-include ./component/rating.pug
-include ./component/tab.pug
 block main 
     +breadcrumb(breadcrumb , current)
     section.product-detail 

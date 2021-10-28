@@ -1,0 +1,48 @@
+extends ./base/base.pug
+
+block variables
+    - const title = 'Danh sách sản phẩm'
+    - const current = '/product.html'
+    include ./data/product_data.pug
+include ./component/product.pug
+include ./component/breadcrumb.pug
+block main 
+    +breadcrumb(breadcrumb , current)
+
+    section.banner 
+        .container 
+            .banner_img 
+    section.product
+        each item in product
+            - const {category, tags, list} = item
+            .container 
+                .row
+                    .col-lg-3 
+                        aside.product_sidebar
+                            .row 
+                                .col-12 
+                                    .product_category 
+                                        h3.title-left Danh mục sản phẩm 
+                                        nav
+                                            each item in category 
+                                                - const {type, list} = item
+                                                h4= type
+                                                ul.product_category_list 
+                                                    each item in list 
+                                                        - const {name, quantity} = item
+                                                        li.product_category_item
+                                                            a(href='#' class= name === category[0].list[2].name ? 'active' : '')= name
+                                                                span= `(${quantity})`
+                                .col-12 
+                                    .product_compare.pt-5 
+                                        h3.title-left So sánh sản phẩm 
+                                        p Bạn chưa có vật phẩm nào để sánh
+                                    .product_tag.pt-5 
+                                        h3.title-left Tag sản phẩm
+                                        each item in tags 
+                                            if item === tags[0]
+                                                button.btn.tag.tag--active= item
+                                            else
+                                                button.btn.tag= item
+                                    .product_banner.pt-5  
+                                        img(src="./assets/images/ads.jpg", alt="ads")
